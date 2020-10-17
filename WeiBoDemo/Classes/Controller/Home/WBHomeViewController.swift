@@ -21,7 +21,7 @@ class WBHomeViewController: WBBaseViewController {
     }
     
     override func loadData() {
-        for i in 0..<10 {
+        for i in 0..<20 {
             statusList.insert(i.description, at: 0)
         }
     }

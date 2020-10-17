@@ -21,7 +21,6 @@ class WBBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
     }
     
@@ -61,6 +60,8 @@ extension WBBaseViewController {
         view.insertSubview(tableView!, belowSubview: navBar)
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView?.contentInset = UIEdgeInsets(top: UIScreen.navBarAndStatusBarHeight, left: 0, bottom: UIScreen.tabBarHeight, right: 0)
+        tableView?.contentInsetAdjustmentBehavior = .never
     }
     
     /// 设置导航栏
@@ -83,4 +84,5 @@ extension WBBaseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
 }
