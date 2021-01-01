@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        loadAppInfo()
         return true
     }
 
@@ -33,5 +35,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+
+
+
+extension AppDelegate {
+    private func loadAppInfo() {
+        DispatchQueue.global().async {
+            let url = Bundle.main.path(forResource: "demo.json", ofType: nil)
+            let data = NSData(contentsOfFile: url!)
+            let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let jsonPath = (docDir as NSString).appendingPathComponent("demo.json")
+            data?.write(toFile: jsonPath, atomically: true)
+            
+            print("应用程序加载完毕\(jsonPath)")
+            
+        }
+    }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 extension UIScreen {
     
     
-    class var screenWith: CGFloat {
+    class var screenWidth: CGFloat {
         return main.bounds.width
     }
     
@@ -24,7 +24,7 @@ extension UIScreen {
     }
     
     class var isIphoneX: Bool {
-        return screenWith >= 375.0 && screenHeight >= 812.0  && isIphone
+        return screenWidth >= 375.0 && screenHeight >= 812.0  && isIphone
     }
     
     class var statusBarHeight: CGFloat {

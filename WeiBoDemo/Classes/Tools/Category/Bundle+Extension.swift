@@ -12,4 +12,5 @@ extension Bundle {
     var spaceName: String {
         return infoDictionary?["CFBundleName"] as? String ?? ""
     }
+    
 }
